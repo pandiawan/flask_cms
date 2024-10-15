@@ -1,0 +1,76 @@
+Add Post
+---
+tags:
+  - Post
+
+security:
+  - Bearer: []
+
+consumes:
+  - multipart/form-data
+
+parameters:
+  - in: 'formData'
+    name: 'title'
+    description: 'Title of the post'
+    required: true
+    type: 'string'
+  - in: 'formData'
+    name: 'content'
+    description: 'Content of the post'
+    required: true
+    type: 'string'
+  - in: 'formData'
+    name: 'image'
+    description: 'Image file to upload'
+    required: true
+    type: 'file'
+  - in: 'formData'
+    name: 'category_id'
+    description: 'Category ID associated with the post'
+    required: true
+    type: 'string'
+  - in: 'formData'
+    name: 'tags'
+    description: 'List of Tags (comma separated)'
+    required: true
+    type: 'string'
+
+responses:
+  201:
+    description: Successfully created post
+    schema:
+      $ref: '#/definitions/PostResponse'
+  400:
+    description: Bad request, invalid input data
+
+definitions:
+  PostResponse:
+    type: object
+    properties:
+      _id:
+        type: string
+        description: "The unique identifier for the post"
+      title:
+        type: string
+        description: "The title of the post"
+      content:
+        type: string
+        description: "The content of the post"
+      image:
+        type: string
+        description: "The file path of the post's image"
+      author:
+        type: string
+        description: "The user ID who created the post"
+      category_id:
+        type: string
+        description: "The category ID"
+      tags:
+        type: array
+        items:
+          type: string
+        description: "List of tags"
+      date_published:
+        type: string
+        description: "The date when the post was published"

@@ -1,0 +1,22 @@
+Get User by ID
+---
+tags:
+  - User
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    description: The ID of the user to retrieve
+    type: string
+
+responses:
+  200:
+    description: Successfully retrieved the user
+    schema:
+      $ref: '#/definitions/UserResponse'
+  404:
+    description: User not found

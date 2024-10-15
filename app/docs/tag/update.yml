@@ -1,0 +1,31 @@
+Update Tag
+---
+tags:
+  - Tag
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: tag_id
+    description: The ID of the tag to update
+    required: true
+    type: string
+  - in: body
+    name: body
+    description: The tag data to update
+    schema:
+      type: object
+      required: true
+      properties:
+        name:
+          type: string
+
+responses:
+  200:
+    description: Successfully updated the tag
+    schema:
+      $ref: '#/definitions/TagResponse'
+  404:
+    description: Tag not found

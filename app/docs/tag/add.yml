@@ -1,0 +1,34 @@
+Add Tag
+---
+tags:
+  - Tag
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: 'body'
+    name: 'body'
+    description: 'The tag to create'
+    schema:
+      type: 'object'
+      required: true
+      properties:
+        name:
+          type: 'string'
+
+responses:
+  200:
+    description: Successfully add tag
+    schema:
+      $ref: '#/definitions/TagResponse'
+definitions:
+  TagResponse:
+    type: object
+    properties:
+      _id:
+        type: string
+        description: "The unique identifier for the tag"
+      name:
+        type: string
+        description: "The name of the tag"

@@ -1,0 +1,55 @@
+Create User
+---
+tags:
+  - User
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: 'body'
+    name: 'body'
+    description: 'The user to create'
+    required: true
+    schema:
+      type: object
+      required:
+        - name
+        - email
+        - username
+        - password
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+          format: password
+
+responses:
+  201:
+    description: Successfully created user
+    schema:
+      $ref: '#/definitions/UserResponse'
+  400:
+    description: Bad request, invalid input data
+
+definitions:
+  UserResponse:
+    type: object
+    properties:
+      _id:
+        type: string
+        description: "The unique identifier for the user"
+      name:
+        type: string
+        description: "The name of the user"
+      email:
+        type: string
+        description: "The email of the user"
+      username:
+        type: string
+        description: "The username of the user"

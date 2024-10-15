@@ -1,0 +1,15 @@
+Get All Users
+---
+tags:
+  - User
+
+security:
+  - Bearer: []
+
+responses:
+  200:
+    description: Successfully retrieved all users
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/UserResponse'

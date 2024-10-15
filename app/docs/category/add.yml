@@ -1,0 +1,34 @@
+Add Category
+---
+tags:
+  - Category
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: 'body'
+    name: 'body'
+    description: 'The category to create'
+    schema:
+      type: 'object'
+      required: true
+      properties:
+        name:
+          type: 'string'
+
+responses:
+  200:
+    description: Successfully add category
+    schema:
+      $ref: '#/definitions/CategoryResponse'
+definitions:
+  CategoryResponse:
+    type: object
+    properties:
+      _id:
+        type: string
+        description: "The unique identifier for the category"
+      name:
+        type: string
+        description: "The name of the category"

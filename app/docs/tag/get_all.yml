@@ -1,0 +1,17 @@
+Get All Tags
+---
+tags:
+  - Tag
+
+security:
+  - Bearer: []
+
+responses:
+  200:
+    description: Successfully retrieved all tags
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/TagResponse'
+  401:
+    description: Unauthorized, invalid or missing JWT token

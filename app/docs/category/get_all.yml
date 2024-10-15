@@ -1,0 +1,17 @@
+Get All Categories
+---
+tags:
+  - Category
+
+security:
+  - Bearer: []
+
+responses:
+  200:
+    description: Successfully retrieved all categories
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/CategoryResponse'
+  401:
+    description: Unauthorized, invalid or missing JWT token

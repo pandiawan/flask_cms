@@ -1,0 +1,48 @@
+Login User
+---
+tags:
+  - Auth
+
+parameters:
+  - in: 'body'
+    name: 'body'
+    description: 'The user credentials for login'
+    schema:
+      type: 'object'
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: 'string'
+          description: 'The username of the user'
+        password:
+          type: 'string'
+          description: 'The password of the user'
+
+responses:
+  200:
+    description: Successfully logged in
+    schema:
+      $ref: '#/definitions/LoginResponse'
+  401:
+    description: Unauthorized
+    schema:
+      $ref: '#/definitions/ErrorResponse'
+
+definitions:
+  LoginResponse:
+    type: object
+    properties:
+      access_token:
+        type: string
+        description: 'The JWT token for authentication'
+      token_type:
+        type: string
+        description: 'The type of the token, usually "Bearer"'
+  ErrorResponse:
+    type: object
+    properties:
+      message:
+        type: string
+        description: 'Error message describing the issue'

@@ -1,0 +1,37 @@
+Update User
+---
+tags:
+  - User
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    description: The ID of the user to update
+    type: string
+  - in: body
+    name: 'body'
+    description: 'The user data to update'
+    schema:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
+          format: password
+
+responses:
+  200:
+    description: Successfully updated user
+    schema:
+      $ref: '#/definitions/UserResponse'
+  404:
+    description: User not found

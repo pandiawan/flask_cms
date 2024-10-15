@@ -1,0 +1,22 @@
+Delete Post
+---
+tags:
+  - Post
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: post_id
+    required: true
+    type: string
+    description: ID of the post to delete
+
+responses:
+  200:
+    description: Successfully deleted post
+  404:
+    description: Post not found
+  401:
+    description: Unauthorized

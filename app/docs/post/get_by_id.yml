@@ -1,0 +1,24 @@
+Get Post by ID
+---
+tags:
+  - Post
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: post_id
+    required: true
+    type: string
+    description: ID of the post to retrieve
+
+responses:
+  200:
+    description: Successfully retrieved post by ID
+    schema:
+      $ref: '#/definitions/PostResponse'
+  404:
+    description: Post not found
+  401:
+    description: Unauthorized

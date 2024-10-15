@@ -1,0 +1,20 @@
+Delete User
+---
+tags:
+  - User
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+    description: The ID of the user to delete
+
+responses:
+  200:
+    description: Successfully deleted user
+  404:
+    description: User not found

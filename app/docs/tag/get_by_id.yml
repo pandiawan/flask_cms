@@ -1,0 +1,22 @@
+Get Tag by ID
+---
+tags:
+  - Tag
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: tag_id
+    description: The ID of the tag to retrieve
+    required: true
+    type: string
+
+responses:
+  200:
+    description: Successfully retrieved the tag
+    schema:
+      $ref: '#/definitions/TagResponse'
+  404:
+    description: Tag not found

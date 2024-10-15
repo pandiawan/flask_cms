@@ -1,0 +1,17 @@
+Get All Posts
+---
+tags:
+  - Post
+
+security:
+  - Bearer: []
+
+responses:
+  200:
+    description: Successfully retrieved all posts
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/PostResponse'
+  401:
+    description: Unauthorized

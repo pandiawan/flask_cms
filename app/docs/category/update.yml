@@ -1,0 +1,31 @@
+Update Category
+---
+tags:
+  - Category
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: category_id
+    description: The ID of the category to update
+    required: true
+    type: string
+  - in: body
+    name: body
+    description: The category data to update
+    schema:
+      type: object
+      required: true
+      properties:
+        name:
+          type: string
+
+responses:
+  200:
+    description: Successfully updated the category
+    schema:
+      $ref: '#/definitions/CategoryResponse'
+  404:
+    description: Category not found

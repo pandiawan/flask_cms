@@ -1,0 +1,20 @@
+Delete Category
+---
+tags:
+  - Category
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: category_id
+    description: The ID of the category to delete
+    required: true
+    type: string
+
+responses:
+  204:
+    description: Successfully deleted the category
+  404:
+    description: Category not found

@@ -1,0 +1,52 @@
+Update Post
+---
+tags:
+  - Post
+
+security:
+  - Bearer: []
+
+consumes:
+  - multipart/form-data
+
+parameters:
+  - in: 'path'
+    name: 'post_id'
+    description: 'ID of the post to update'
+    required: true
+    type: 'string'
+  - in: 'formData'
+    name: 'title'
+    description: 'Title of the post'
+    required: false
+    type: 'string'
+  - in: 'formData'
+    name: 'content'
+    description: 'Content of the post'
+    required: false
+    type: 'string'
+  - in: 'formData'
+    name: 'image'
+    description: 'New image file to upload'
+    required: false
+    type: 'file'
+  - in: 'formData'
+    name: 'category_id'
+    description: 'Category ID associated with the post'
+    required: false
+    type: 'string'
+  - in: 'formData'
+    name: 'tags'
+    description: 'List of Tags (comma separated)'
+    required: false
+    type: 'string'
+
+responses:
+  200:
+    description: Successfully updated post
+    schema:
+      $ref: '#/definitions/PostResponse'
+  400:
+    description: Invalid input, bad request
+  404:
+    description: Post not found
